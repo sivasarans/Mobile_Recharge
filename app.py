@@ -1,13 +1,13 @@
 from flask import Flask, render_template, request
 import requests
 import random
-import json  # Don't forget to import json
+import json
 
 app = Flask(__name__)
 
 # Replace 'YOUR_API_MEMBER_ID' and 'YOUR_PIN' with your actual values
-API_MEMBER_ID = 'AP608572'
-PIN = '3F96C7A742'
+API_MEMBER_ID = 'AP60****'   // hiding, because its sensitive
+PIN = '3F96C*****'           // same as....
 
 def get_api_response(api_url):
     payload = {}

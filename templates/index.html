@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOBILE RECHARGE</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+    <h1>API Response</h1>
+    
+    <h2>WALLET: <pre>{{ balance_response_text | safe }}</pre></h2>
+
+    <h2>Recharge Status</h2>
+    <form method="get" action="{{ url_for('api_response') }}">
+        <label for="transaction_id">Enter Transaction ID:</label>
+        <input type="text" id="transaction_id" name="transaction_id">
+        <button type="submit">Check Status</button>
+    </form>
+    <pre>{{ status_response_text|safe }}</pre>
+
+    <h2>Recharge</h2>
+    <form method="get" action="{{ url_for('api_response') }}">
+    <label for="number">Enter Mobile Number:</label>
+    <input type="text" id="number" name="number" required><br>
+
+    <label for="operator">Select Operator:</label>
+    <select id="operator" name="operator" required>
+<option value="AT">Airtel</option>
+<option value="JIO">Reliance Jio</option>
+<option value="VF">VodafoneIdea</option>
+<option value="ID">IdeaVodafone</option>
+<option value="BSNL">BSNL TopUp</option>
+<option value="BSV">BSNL Recharge/Validity (RCV)</option>
+<option value="BSG">BSNL 3G</option>
+<option value="BSS">BSNL Special (STV)</option>
+<option value="ATX">Airtel Express</option>
+<option value="MM">MTNL Mumbai</option>
+<option value="MMS">MTNL Mumbai Special</option>
+<option value="MD">MTNL Delhi</option>
+<option value="MDS">MTNL Delhi Special</option>
+<option value="JIOX">JIO Express</option>
+    </select><br>
+
+    <label for="circle">Select Circle:</label>
+    <select id="circle" name="circle" required>
+<option value="20">Tamil Nadu</option>
+<option value="1">Andhra Pradesh</option>
+<option value="2">Assam</option>
+<option value="3">Bihar</option>
+<option value="4">Chennai</option>
+<option value="5">Delhi</option>
+<option value="6">Gujarat</option>
+<option value="7">Haryana</option>
+<option value="8">Himachal Pradesh</option>
+<option value="9">Jammu & Kashmir</option>
+<option value="10">Karnataka</option>
+<option value="11">Kerala</option>
+<option value="12">Kolkata</option>
+<option value="13">Maharashtra</option>
+<option value="14">Madhya Pradesh</option>
+<option value="15">Mumbai</option>
+<option value="16">North East</option>
+<option value="17">Odisha</option>
+<option value="18">Punjab</option>
+<option value="19">Rajasthan</option>
+<option value="20">Tamil Nadu</option>
+</select>
+
+    <br>
+    <label for="amount">Enter Amount:</label>
+    <input type="text" id="amount" name="amount" required><br>
+
+    <button type="submit">Recharge</button>
+</form>
+
+    <pre>{{ recharge_response_text|safe }}</pre>
+</body>
+</html>
